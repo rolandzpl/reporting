@@ -23,7 +23,7 @@
   </xsl:template>
 
   <xsl:template match="testCase">
-    <h2 class="h2">
+    <h2>
       <small>
         [<xsl:value-of select="@result" />]
       </small>
