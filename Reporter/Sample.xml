@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tests>
+  <testCase name="Test1" result="Failed">
+    <description>Description for test #1</description>
+    <assertions>
+      <assertion result="Failed" expectedResult="Ala ma kota..." actualResult="Ala ma kota">
+        <description>This is assertion description...</description>
+      </assertion>
+      <assertion result="Passed" expectedResult="Ala ma kota..." actualResult="Ala ma kota...">
+        <description>This is assertion description...</description>
+      </assertion>
+    </assertions>
+  </testCase>
+  <testCase name="Test2" result="Pass">
+    <description>Description for test #2</description>
+    <assertions>
+      <assertion result="Failed" expectedResult="Ala ma kota..." actualResult="Ala ma kota">
+        <description>This is assertion description...</description>
+      </assertion>
+      <assertion result="Passed" expectedResult="Ala ma kota..." actualResult="Ala ma kota...">
+        <description>This is assertion description...</description>
+      </assertion>
+    </assertions>
+  </testCase>
+  <testCase name="Test3" result="Pass">
+    <description>Description for test #3</description>
+    <assertions>
+      <assertion result="Failed" expectedResult="Ala ma kota..." actualResult="Ala ma kota">
+        <description>This is assertion description...</description>
+      </assertion>
+      <assertion result="Passed" expectedResult="Ala ma kota..." actualResult="Ala ma kota...">
+        <description>This is assertion description...</description>
+      </assertion>
+    </assertions>
+  </testCase>
+  <testCase name="Test4" result="Pass">
+    <description>Description for test #4</description>
+    <assertions>
+      <assertion result="Failed" expectedResult="Ala ma kota..." actualResult="Ala ma kota">
+        <description>This is assertion description...</description>
+      </assertion>
+      <assertion result="Passed" expectedResult="Ala ma kota..." actualResult="Ala ma kota...">
+        <description>This is assertion description...</description>
+      </assertion>
+    </assertions>
+  </testCase>
+</tests>

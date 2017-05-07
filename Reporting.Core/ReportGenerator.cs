@@ -15,7 +15,7 @@ namespace Reporting
 
         public void GenerateReport(TextReader input, string path)
         {
-            var transformer = new XsltTransformer(templateProvider.GetIndexTemplate());
+            var transformer = new XsltTransformer(templateProvider.GetTemplateReader());
             using (var writer = fileSystem.CreateFile(path))
             {
                 transformer.Transform(input, writer);

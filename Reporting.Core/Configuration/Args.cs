@@ -60,9 +60,20 @@ namespace Reporting.Configuration
                 .ToArray();
         }
 
-        public bool Has<T>(string name)
+        public bool Has(string name)
         {
             return args.Any(x => x.StartsWith("--" + name + "="));
+        }
+
+        public T[] Unnamed<T>()
+        {
+            var s = args
+                .Where(x => !x.StartsWith("--"))
+                .ToArray();
+
+            return s
+                .Select(x => (T)Convert.ChangeType(x, typeof(T)))
+                .ToArray();
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Reporting.Configuration
         {
             var args = new Args("--sampleParameter=1");
 
-            var result = args.Has<int>("sampleParameter");
+            var result = args.Has("sampleParameter");
 
             Assert.That(result, Is.True);
         }
@@ -50,7 +50,7 @@ namespace Reporting.Configuration
         {
             var args = new Args("--x=1", "--x=1", "--x=1");
 
-            var result = args.Has<int>("x");
+            var result = args.Has("x");
 
             Assert.That(result, Is.True);
         }
@@ -60,7 +60,7 @@ namespace Reporting.Configuration
         {
             var args = new Args();
 
-            var result = args.Has<int>("sampleParameter");
+            var result = args.Has("sampleParameter");
 
             Assert.That(result, Is.False);
         }
@@ -82,6 +82,26 @@ namespace Reporting.Configuration
 
             Assert.Throws<ArgumentNotFountException>(
                 () => args.Many<int>("x"));
+        }
+
+        [Test]
+        public void Unnamed_ArgsExist_ReturnsArrayOfItems()
+        {
+            var args = new Args("aaa", "bbb", "ccc");
+
+            var result = args.Unnamed<string>();
+
+            Assert.That(result[0], Is.EqualTo("aaa"));
+        }
+
+        [Test]
+        public void Unnamed_NoArgsExist_ReturnsEmptyArray()
+        {
+            var args = new Args("--aaa", "--bbb", "--ccc");
+
+            var result = args.Unnamed<string>();
+
+            Assert.That(result, Is.Empty);
         }
     }
 }

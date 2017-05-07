@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Reporting
+namespace Reporting.Fakes
 {
     class FakeFileSystem : IFileSystem
     {
@@ -30,6 +31,11 @@ namespace Reporting
             var writer = new StringWriter();
             files.Add(path, writer);
             return writer;
+        }
+
+        public TextReader OpenFile(string path)
+        {
+            throw new NotImplementedException();
         }
     }
 }

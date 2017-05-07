@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Reporting.Fakes;
 using System.IO;
 
 namespace Reporting
@@ -41,11 +42,10 @@ namespace Reporting
         private FakeFileSystem fileSystem;
         private FakeTemplateProvider templateProvider;
         private ReportGenerator generator;
-    }
 
-    class Input
-    {
-        public const string TestReport = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+        class Input
+        {
+            public const string TestReport = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
 <tests>
   <testCase name = ""Test1"" result=""Failed"" />
   <testCase name = ""Test2"" result=""Pass"" />
@@ -65,11 +65,11 @@ namespace Reporting
   </testCase>
 </tests>
 ";
-    }
+        }
 
-    class Xslt
-    {
-        public const string ReportTemplate = @"<?xml version=""1.0"" encoding=""utf-8""?>
+        class Xslt
+        {
+            public const string ReportTemplate = @"<?xml version=""1.0"" encoding=""utf-8""?>
 <xsl:stylesheet version = ""1.0"" xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"">
   <xsl:template match = ""/"">
     <html>
@@ -92,5 +92,6 @@ namespace Reporting
   </xsl:template>
 </xsl:stylesheet>
 ";
+        }
     }
 }

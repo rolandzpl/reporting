@@ -4,6 +4,6 @@ namespace Reporting
 {
     public interface ITemplateProvider
     {
-        TextReader GetIndexTemplate();
+        TextReader GetTemplateReader();
     }
 }

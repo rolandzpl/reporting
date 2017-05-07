@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Reporting
+namespace Reporting.Fakes
 {
     class FakeTemplateProvider : ITemplateProvider  
     {
@@ -12,7 +12,7 @@ namespace Reporting
             this.indexTemplate = indexTemplate;
         }
 
-        public TextReader GetIndexTemplate()
+        public TextReader GetTemplateReader()
         {
             return indexTemplate;
         }

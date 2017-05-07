@@ -1,22 +1,26 @@
-﻿using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using Reporting.Configuration;
 
-namespace Reporter
+namespace Reporting
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var template = args
-                .SingleOrDefault(x => x.StartsWith("--template="))
-                .Split('=')
-                .Skip(1)
-                .FirstOrDefault();
+            var arguments = new Args(args);
+            var templateName = arguments.Has("template") ?
+                arguments.One<string>("template") :
+                "";
+            var inputPath = arguments.Unnamed<string>();
+            var outputPath = arguments.One<string>("output");
 
-            var asm = Assembly.GetExecutingAssembly();
-            var stream = asm.GetManifestResourceStream(@"Reporter\" + template + "xslt");
-            var xslt = new StreamReader(stream);
+            var fs = new FileSystem();
+            var templateProvider = new TemplateProvider(templateName);
+            var generator = new ReportGenerator(fs, templateProvider);
+
+            using (var input = fs.OpenFile(inputPath[0]))
+            {
+                generator.GenerateReport(input, outputPath);
+            }
         }
     }
 }
