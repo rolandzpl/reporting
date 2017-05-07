@@ -9,7 +9,7 @@ namespace Reporting
             var arguments = new Args(args);
             var templateName = arguments.Has("template") ?
                 arguments.One<string>("template") :
-                "";
+                "Default";
             var inputPath = arguments.Unnamed<string>();
             var outputPath = arguments.One<string>("output");
 
