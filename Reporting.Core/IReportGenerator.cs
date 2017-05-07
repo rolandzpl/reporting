@@ -4,6 +4,6 @@ namespace Reporting
 {
     public interface IReportGenerator
     {
-        void GenerateReport(TextReader input);
+        void GenerateReport(TextReader input, string path);
     }
 }

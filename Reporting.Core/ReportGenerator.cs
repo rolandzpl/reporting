@@ -13,10 +13,10 @@ namespace Reporting
             this.templateProvider = templateProvider;
         }
 
-        public void GenerateReport(TextReader input)
+        public void GenerateReport(TextReader input, string path)
         {
             var transformer = new XsltTransformer(templateProvider.GetIndexTemplate());
-            using (var writer = fileSystem.CreateFile("index.html"))
+            using (var writer = fileSystem.CreateFile(path))
             {
                 transformer.Transform(input, writer);
             }

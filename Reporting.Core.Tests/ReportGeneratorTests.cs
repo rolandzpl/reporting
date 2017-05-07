@@ -11,7 +11,7 @@ namespace Reporting
         {
             var input = new StringReader(Input.TestReport);
 
-            generator.GenerateReport(input);
+            generator.GenerateReport(input, "index.html");
 
             Assert.That(fileSystem.Files, Does.ContainKey("index.html"));
         }
@@ -21,7 +21,7 @@ namespace Reporting
         {
             var input = new StringReader(Input.TestReport);
 
-            generator.GenerateReport(input);
+            generator.GenerateReport(input, "index.html");
 
             Assert.That(fileSystem.Files["index.html"],
                 Does.Match(@".*<li>\s*Test1\s*</li>.*") &
